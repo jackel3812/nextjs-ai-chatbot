@@ -1,0 +1,2 @@
+# riley.db is the SQLite database file for Riley-Ai.
+# It will be created automatically by SQLite when the app runs and interacts with the database.
