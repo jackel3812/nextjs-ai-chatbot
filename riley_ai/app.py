@@ -8,6 +8,13 @@ CORS(app)  # Allow cross-origin requests
 def chat():
     data = request.json
     print("Received data:", data)
+    # Import jarvis modules here to use Riley's advanced features
+    try:
+        from jarvis.core import process_message
+        from jarvis.personality import get_personality_response
+    except ImportError:
+        # If modules aren't available, fall back to basic response
+        pass
     # TODO: Integrate with jarvis/core.py and other modules
     # For now, just echo the message with Riley's persona
     message_content = ""
@@ -37,4 +44,9 @@ def home():
     return "Riley-Ai Python Backend is running. Use /api/chat endpoint for chat functionality."
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5002, debug=True)
+    # In production, use port 5000 (standard for Flask in containers)
+    # Set debug to False in production
+    import os
+    port = int(os.environ.get("PORT", 5000))
+    debug = os.environ.get("FLASK_ENV") == "development"
+    app.run(host='0.0.0.0', port=port, debug=debug)

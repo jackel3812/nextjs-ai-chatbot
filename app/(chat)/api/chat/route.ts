@@ -71,7 +71,10 @@ export async function POST(request: Request) {
 
   // Proxy the chat request to the Python backend
   try {
-    const response = await fetch('http://localhost:5001/api/chat', {
+    // In production (like Hugging Face), the Flask app is available via localhost
+    // In development, it's also localhost but could be configured differently
+    const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:5000';
+    const response = await fetch(`${backendUrl}/api/chat`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(requestBody),

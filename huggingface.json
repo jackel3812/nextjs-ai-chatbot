@@ -1,0 +1,14 @@
+{
+  "repository": "RIley-Ai",
+  "description": "An advanced AI assistant with a Next.js frontend and modular Python backend",
+  "tags": ["ai", "chatbot", "next-js", "python", "flask"],
+  "sdk": "docker",
+  "build": {
+    "env": {
+      "NEXT_PUBLIC_APP_URL": "https://USERNAME-riley-ai.hf.space",
+      "NEXTAUTH_URL": "https://USERNAME-riley-ai.hf.space",
+      "NEXTAUTH_SECRET": "${NEXTAUTH_SECRET}",
+      "NEXT_PUBLIC_BACKEND_URL": "http://localhost:5000"
+    }
+  }
+}

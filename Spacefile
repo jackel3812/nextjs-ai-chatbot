@@ -1,0 +1,12 @@
+name: Riley-AI
+description: An advanced AI chatbot with a Next.js frontend and modular Python backend
+tags:
+  - ai
+  - chatbot
+  - next-js
+  - flask
+  - python
+  - riley-ai
+sdk: docker
+app_port: 3000
+models: []
