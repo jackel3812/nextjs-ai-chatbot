@@ -34,9 +34,10 @@ COPY --from=frontend-builder /app/next.config.ts ./next.config.ts
 # Copy Python backend files
 COPY riley_ai ./riley_ai
 
-# Copy the startup script
+# Copy the startup scripts
 COPY app-start.sh ./app-start.sh
-RUN chmod +x ./app-start.sh
+COPY hf-setup-helper.sh ./hf-setup-helper.sh
+RUN chmod +x ./app-start.sh ./hf-setup-helper.sh
 
 # Expose both ports (Next.js and Flask)
 EXPOSE 3000

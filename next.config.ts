@@ -11,6 +11,16 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  rewrites: async () => {
+    return [
+      {
+        source: '/api/riley/:path*',
+        destination: process.env.NEXT_PUBLIC_BACKEND_URL 
+          ? `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/:path*` 
+          : 'http://localhost:5000/api/:path*',
+      },
+    ];
+  },
 };
 
 export default nextConfig;

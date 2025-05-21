@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
+import datetime
 
 app = Flask(__name__)
 CORS(app)  # Allow cross-origin requests
@@ -42,6 +43,17 @@ def chat():
 @app.route('/', methods=['GET'])
 def home():
     return "Riley-Ai Python Backend is running. Use /api/chat endpoint for chat functionality."
+
+@app.route('/api/health', methods=['GET'])
+def health():
+    """Health check endpoint for monitoring"""
+    import json
+    return jsonify({
+        'status': 'healthy',
+        'service': 'riley-ai-backend',
+        'timestamp': datetime.datetime.now().isoformat(),
+        'version': '1.0.0'
+    })
 
 if __name__ == '__main__':
     # In production, use port 5000 (standard for Flask in containers)
