@@ -28,6 +28,7 @@ yarn-error.log*
 .env.development.local
 .env.test.local
 .env.production.local
+.env.huggingface
 
 # turbo
 .turbo
@@ -41,3 +42,12 @@ yarn-error.log*
 /playwright-report/
 /blob-report/
 /playwright/*
+
+# Project specific
+sync_config.jsonc
+New folder (10)/
+Riley core files/
+.vscode/
+__pycache__/
+*.pyc
+.pytest_cache/
